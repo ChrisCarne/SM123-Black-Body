@@ -63,7 +63,8 @@ while True:
   best_so_far=temps[errors.index(min(errors))] #finds the temp associated with the smallest error
   #outputs
   # NB Error multiplied by 1e5 to give a more convenient figure for the user
-  print(f"Error (*1e5) is {round(rms*1e5,2)}" '\n')
+  print("")
+  print(f"Error (*1e5) is {round(rms*1e5,2)}")
   print(f"Smallest error so far is {round((min(errors)*1e5),2)} for a temperature of {best_so_far} K" '\n')
     # go round again or stop and finish up
   go_again=input("Enter another temperature or type q to finish")
@@ -72,8 +73,7 @@ while True:
   else:
     temp=float(go_again)
     
-
-plt.clf() 
+ 
 plt.title("Intensity against wavelength")
 plt.xlabel(r'$\mathrm{wavelength}$  $\mathrm{/mm}$')
 #plt.xlabel(r'$s(t) = \mathcal{A}\mathrm{sin}(2 \omega t)$')
@@ -102,5 +102,8 @@ for temperature in temp_range:
 # the associated temp from the temp_range array
 minimising_temp=temp_range[np.where(error_array==np.min(error_array))][0]
 
-print(f"The temperature that gives the closest match to the obsered data is {round(minimising_temp,4)} K (5 s.f.)")
+print(f"Your estimate for the temperature was {temp} K with an error of {round((errors[-1]*1e5),3)}")
+print(f"The calculated temperature that gives the best fit to the obsered data is {round(minimising_temp,3)} K (4 s.f.)\
+ with an error of {round(np.min(error_array)*1e5,3)}")
+
 

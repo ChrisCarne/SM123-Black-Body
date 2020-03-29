@@ -75,9 +75,8 @@ while True:
     
  
 plt.title("Intensity against wavelength")
-plt.xlabel(r'$\mathrm{wavelength}$  $\mathrm{/mm}$')
-#plt.xlabel(r'$s(t) = \mathcal{A}\mathrm{sin}(2 \omega t)$')
-plt.ylabel(r'$\mathrm{Intensity}$ $\mathrm{/W }$ $\mathrm{m}^{-2}$ $\mathrm{ m}^{-1}$ $\mathrm{sr}^{-2}$')
+plt.xlabel(r'$\mathrm{wavelength}\ \mathrm{/mm}$')
+plt.ylabel(r'$Intensity\ /W\ m^{-2}\ m^{-1}\ sr^{-2}$')
 plt.ticklabel_format(axis="y", style="sci", useOffset= True, scilimits=(0.01,1000))
 plt.plot(measured_lambda,measured_intensity,'*', label="Observed")
 plt.plot(model_lambda_range,model_intensity, label="Model: T= "+ str(temp))
